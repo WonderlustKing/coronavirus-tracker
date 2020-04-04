@@ -8,7 +8,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
+    <link rel="shortcut icon" type="image/png" th:href="@{/favicon.ico}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style type="text/css">
+
         table {
             width: 100%;
         }
@@ -53,23 +56,23 @@
     <a class="col-1" href="./?lang=en" style="color: white; text-align: end"><i class="united states flag">US</i></a>
     <a class="col-1" style="color: white;" href="./?lang=el"><i class="greece flag">GR</i></a>
 </nav>
-<div class="container-md">
+<div class="container">
     <div class="row">
-        <div class="pt-4 col-sm-12">
+        <div class="pt-4 col-lg-12">
             <h4 class="ml-2" th:text="#{summary}"></h4>
         </div>
-        <div class="card col-sm-9 ml-4 mb-4 mr-4" style="background-color: #e9ecef; border: none">
+        <div class="card col-lg-9 ml-4 mb-4 mr-4" style="background-color: #e9ecef; border: none">
             <div class="card-body pb-0">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4" style="text-align: center">
                         <h1 class="display-4" th:text="${confirmedTotalCases}"></h1>
                         <p class="lead" th:text="#{total_confirmed}">Total cases reported as of today</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4" style="text-align: center">
                         <h1 class="display-4" style="color: red" th:text="${totalDeaths}"></h1>
                         <p class="lead" th:text="#{total_deaths}">Total deaths reported as of today</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4" style="text-align: center">
                         <h1 class="display-4" style="color: green" th:text="${totalRecovers}"></h1>
                         <p class="lead" th:text="#{total_recovers}">Total recovers reported as of today</p>
                     </div>
@@ -84,11 +87,11 @@
                     <span th:text="${newDeaths}"></span>
                 </p>
                 <div class="row">
-                    <p class="card-text col-sm-8">
+                    <p class="card-text col-lg-8">
                         <span th:text="#{new_recovers}">New recovers reported since previous day:</span>
                         <span th:text="${newRecovers}"></span>
                     </p>
-                    <small class="card-text col-sm-4" style="text-align: end">
+                    <small class="card-text col-lg-4" style="text-align: end">
                         <span th:text="#{last_updated}"></span>
                         <span th:text="${date}"></span>
                     </small>
@@ -97,7 +100,7 @@
         </div>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-lg-10">
         <h4 th:text="#{confirmed_cases}">Confirmed Cases</h4>
         <table class="table">
             <thead class="thead-dark">
@@ -117,7 +120,7 @@
         </table>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-lg-10">
         <h4 class="pt-4" th:text="#{deaths}">Deaths</h4>
         <table class="table">
             <thead class="thead-dark">
@@ -137,7 +140,7 @@
         </table>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-lg-10">
         <h4 class="pt-4" th:text="#{recovers}">Recovers</h4>
         <table class="table">
             <thead class="thead-dark">
@@ -159,6 +162,7 @@
 </div>
 <nav class="navbar navbar-dark bg-dark">
     <small style="color: white" th:text="#{created_by}">Created by Christos Banatsas</small>
+    <small style="color: white">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></small>
     <a href="https://systems.jhu.edu/research/public-health/ncov/" style="color: white"><small th:text="#{data_provided}">Data provided by Johns Hopkins CSSE</small></a>
 </nav>
 </div>

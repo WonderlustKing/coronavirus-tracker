@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.chrisb</groupId>
     <artifactId>coronavirus-tracker</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>coronavirus-tracker</name>
     <description>Corona virus tracker</description>
 
