@@ -48,9 +48,15 @@ public class HomeController {
 	    .mapToInt(LocationStatsDTO::getNewData)
 	    .sum());
 
-	LocalDate date = LocalDate.now();
+	LocalDate yesterday = LocalDate.now().minusDays(1);
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-	model.addAttribute("date", date.format(formatter));
+	model.addAttribute("yesterday", yesterday.format(formatter));
+
+	List<CovidWorldTimelineDTO> covidWorldTimeLine = fetchDataService.getWorldTimeline();
+	List<WorldMapCountryDTO> todayWorldTimeLine = covidWorldTimeLine.get(covidWorldTimeLine.size() - 1).getList();
+
+	model.addAttribute("worldTimeline", covidWorldTimeLine);
+	model.addAttribute("todayWorldTimeline", todayWorldTimeLine);
 
         return "home";
     }

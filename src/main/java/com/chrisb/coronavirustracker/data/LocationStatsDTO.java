@@ -1,6 +1,11 @@
 package com.chrisb.coronavirustracker.data;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LocationStatsDTO {
+
+    private String id;
 
     private String state;
 
@@ -10,13 +15,17 @@ public class LocationStatsDTO {
 
     private int newData;
 
+    private Map<String, Integer> dateCases = new HashMap<>();
+
     public LocationStatsDTO(){}
 
-    public LocationStatsDTO(String state, String country, int lastUpdatedValue, int newData) {
-	this.state = state;
+    public LocationStatsDTO(String id, String state, String country, int lastUpdatedValue, int newData, Map<String, Integer> dateCases) {
+	this.id = id;
+        this.state = state;
 	this.country = country;
 	this.lastUpdatedValue = lastUpdatedValue;
 	this.newData = newData;
+	this.dateCases = dateCases;
     }
 
     public String getState() {
@@ -51,10 +60,27 @@ public class LocationStatsDTO {
 	this.newData = newData;
     }
 
+    public String getId() {
+	return id;
+    }
+
+    public void setId(String id) {
+	this.id = id;
+    }
+
+    public Map<String, Integer> getDateCases() {
+	return dateCases;
+    }
+
+    public void setDateCases(Map<String, Integer> dateCases) {
+	this.dateCases = dateCases;
+    }
+
     @Override
     public String toString() {
 	return "LocationStatsDTO{" +
-	    "state='" + state + '\'' +
+	    "ID = '" + id + '\'' +
+	    ", state='" + state + '\'' +
 	    ", country='" + country + '\'' +
 	    ", lastUpdatedValue=" + lastUpdatedValue +
 	    ", newData=" + newData +
