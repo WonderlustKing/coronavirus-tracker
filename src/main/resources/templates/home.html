@@ -145,7 +145,6 @@
 
           // get slide data
           var slideData = getSlideData();
-          console.log(slideData);
           // as we will be modifying raw data, make a copy
           // var mapData = JSON.parse(JSON.stringify(slideData.list));
             var mapData = slideData.list;
@@ -931,20 +930,20 @@
 
             mapPolygon.isActive = true;
             // meaning it's globe
-            if (mapGlobeSwitch.isActive) {
-              // animate deltas (results the map to be rotated to the selected country)
-              if (mapChart.zoomLevel != 1) {
-                mapChart.goHome();
-                rotateAndZoom(mapPolygon);
-              }
-              else {
-                rotateAndZoom(mapPolygon);
-              }
-            }
+            // if (mapGlobeSwitch.isActive) {
+            //   // animate deltas (results the map to be rotated to the selected country)
+            //   if (mapChart.zoomLevel != 1) {
+            //     mapChart.goHome();
+            //     rotateAndZoom(mapPolygon);
+            //   }
+            //   else {
+            //     rotateAndZoom(mapPolygon);
+            //   }
+            // }
             // if it's not a globe, simply zoom to the country
-            else {
+            //else {
               mapChart.zoomToMapObject(mapPolygon, getZoomLevel(mapPolygon));
-            }
+            //}
           }
 
           // change line chart data to the selected countries
@@ -952,8 +951,7 @@
             // instead of setting whole data array, we modify current raw data so that a nice animation would happen
             for (var i = 0; i < lineChart.data.length; i++) {
               // var di = covid_world_timeline[i].list;
-              var di = world_timeline.list;
-
+              var di = world_timeline[i].list;
               var countryData = di[countryIndex];
               var dataContext = lineChart.data[i];
               if (countryData) {
