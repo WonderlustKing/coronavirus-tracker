@@ -84,6 +84,9 @@ public class FetchDataService {
 	    for (LocationStatsDTO confirmed : confirmedData) {
 	        WorldMapCountryDTO worldMapCountryDTO = new WorldMapCountryDTO();
 	        worldMapCountryDTO.setId(confirmed.getId());
+	        if ((date.equals(LocalDate.now()) || date.equals(LocalDate.now().minusDays(1))) && confirmed.getDateCases().get(FORMATTER.format(date)) == null) {
+	            continue;
+		}
 	        int confirmsNumber = confirmed.getDateCases().get(FORMATTER.format(date));
 		worldMapCountryDTO.setConfirmed(confirmsNumber);
 
@@ -255,8 +258,12 @@ public class FetchDataService {
 
 	for (LocalDate date = start; date.isBefore(LocalDate.now()); date = date.plusDays(1)) {
 	    String formattedDate = date.format(formatter);
-	    Integer casesOf = Integer.parseInt(record.get(formattedDate));
-	    dateCases.put(date.format(formatter), casesOf);
+	    try {
+		Integer casesOf = Integer.parseInt(record.get(formattedDate));
+		dateCases.put(date.format(formatter), casesOf);
+	    } catch (IllegalArgumentException e) {
+	        e.printStackTrace();
+	    }
 	}
 	return dateCases;
     }

@@ -94,7 +94,7 @@
           var currentCountry = "World";
 
           // last date of the data
-          var lastDate = new Date(covid_total_timeline[covid_total_timeline.length - 1].date);
+          var lastDate = new Date(covid_total_timeline[covid_total_timeline.length - 2].date);
           var currentDate = lastDate;
 
           var currentPolygon;
@@ -573,6 +573,7 @@
           lineChart.paddingTop = 3;
 
           // make a copy of data as we will be modifying it
+          var lastElement = covid_total_timeline.pop();
           lineChart.data = JSON.parse(JSON.stringify(covid_total_timeline));
 
           // date axis
